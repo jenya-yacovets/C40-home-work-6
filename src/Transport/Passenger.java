@@ -37,13 +37,13 @@ public class Passenger extends Ground{
         System.out.println(text);
     }
 
-    public static int calculationConsumption(int distance, int consumption) {
-        return distance / 100 * consumption;
+    private int calculationConsumption(int distance) {
+        return distance / 100 * this.getConsumption();
     }
 
     public void calculateDistance(int time) {
         int distance = time * this.getSpeed();
-        int consumption = this.calculationConsumption(distance, this.getConsumption());
+        int consumption = this.calculationConsumption(distance);
 
         System.out.println("За время " + time + " ч, автомобиль " + this.getBrand() + " двигаясь с максимальной скоростью " + this.getSpeed() + " км/ч проедет " + distance + " км и израсходует " + consumption + " литров топлива");
     }
